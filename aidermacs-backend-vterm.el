@@ -174,7 +174,8 @@ BUFFER-NAME is the name for the vterm buffer."
     (let* ((mode (if (eq (frame-parameter nil 'background-mode) 'dark)
                      "--dark-mode"
                    "--light-mode"))
-           (cmd (mapconcat #'identity (append (list program mode) args) " "))
+           ;; (cmd (mapconcat #'identity (append (list program mode) args) " "))
+           (cmd (mapconcat #'identity (append (list program) args) " "))
            (vterm-buffer-name buffer-name)
            (vterm-shell cmd))
       (with-current-buffer (vterm-other-window)
